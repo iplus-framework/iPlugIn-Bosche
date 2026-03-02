@@ -9,6 +9,7 @@
     <Copyright>GPLv3 iplus-framework</Copyright>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
+    <UseProjectReferences Condition="'$(UseProjectReferences)' == ''">true</UseProjectReferences>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <IPlusIncludeDir>..\..\iPlusMES\bin\Debug\$(DefaultNetCoreTargetFramework)</IPlusIncludeDir>
@@ -39,18 +40,36 @@
     <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="gip.core.autocomponent">
+    <Reference Include="gip.core.autocomponent" Condition="'$(UseProjectReferences)' != 'true'">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>$(IPlusIncludeDir)\gip.core.autocomponent.dll</HintPath>
     </Reference>
-    <Reference Include="gip.core.datamodel">
+    <ProjectReference Include="..\..\iPlus\gip.core.autocomponent\gip.core.autocomponent.csproj" Condition="'$(UseProjectReferences)' == 'true'">
+      <Project>{893D3B1B-DC55-4684-8B5D-941F1049151B}</Project>
+      <Name>gip.core.autocomponent</Name>
+    </ProjectReference>
+    <Reference Include="gip.core.datamodel" Condition="'$(UseProjectReferences)' != 'true'">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>$(IPlusIncludeDir)\gip.core.datamodel.dll</HintPath>
     </Reference>
-    <Reference Include="gip.core.processapplication">
+    <ProjectReference Include="..\..\iPlus\gip.core.datamodel\gip.core.datamodel.csproj" Condition="'$(UseProjectReferences)' == 'true'">
+      <Project>{16FB4111-5110-46E5-851D-38A4D7522F85}</Project>
+      <Name>gip.core.datamodel</Name>
+    </ProjectReference>
+    <Reference Include="gip.core.processapplication" Condition="'$(UseProjectReferences)' != 'true'">
       <HintPath>$(IPlusIncludeDir)\gip.core.processapplication.dll</HintPath>
     </Reference>
-    <Reference Include="gip.mes.processapplication">
+    <ProjectReference Include="..\..\iPlus\gip.core.processapplication\gip.core.processapplication.csproj" Condition="'$(UseProjectReferences)' == 'true'">
+      <Project>{66484708-85BD-47C4-92DD-3010387465F4}</Project>
+      <Name>gip.core.processapplication</Name>
+    </ProjectReference>
+    <Reference Include="gip.mes.processapplication" Condition="'$(UseProjectReferences)' != 'true'">
       <HintPath>$(IPlusIncludeDir)\gip.mes.processapplication.dll</HintPath>
     </Reference>
+    <ProjectReference Include="..\..\iPlusMES\gip.mes.processapplication\gip.mes.processapplication.csproj" Condition="'$(UseProjectReferences)' == 'true'">
+      <Project>{D1320FB8-333D-4072-880D-BD5137933D2F}</Project>
+      <Name>gip.mes.processapplication</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Update="VBControlScripts\2023-06-28 09-38_mzitkovic.zip">
