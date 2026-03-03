@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Net;
 using System.IO.Ports;
+using System.Threading.Tasks;
 
 
 namespace bosche.mes.processapplication
@@ -36,7 +37,7 @@ namespace bosche.mes.processapplication
             return base.ACPostInit();
         }
 
-        public override bool ACDeInit(bool deleteACClassTask = false)
+        public override async Task<bool> ACDeInit(bool deleteACClassTask = false)
         {
             if (_PollThread != null)
             {
@@ -48,7 +49,7 @@ namespace bosche.mes.processapplication
             }
             StopReadWeightData();
             ClosePort();
-            return base.ACDeInit(deleteACClassTask);
+            return await base.ACDeInit(deleteACClassTask);
         }
         #endregion
 

@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\iPlus\Directory.Build.props" />
   <PropertyGroup>
     <TargetFramework>$(DefaultNetCoreTargetFramework)</TargetFramework>
     <OutputType>Library</OutputType>
@@ -80,6 +79,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.IO.Ports" Version="$(NetCorePackageVersion)" />
+    <PackageReference Include="System.IO.Ports" />
   </ItemGroup>
 </Project>

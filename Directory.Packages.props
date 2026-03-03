@@ -1,0 +1,8 @@
+<Project>
+  <Import Project="..\iPlus\Directory.Packages.props" />
+  <ItemGroup>
+    <!-- 
+    <PackageReference Include="System.IO.Ports" Version="$(NetCorePackageVersion)" />
+    -->
+  </ItemGroup>
+</Project>
